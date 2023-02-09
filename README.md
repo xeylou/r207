@@ -6,7 +6,7 @@
 
 
 initial commands
-````sql
+```sql
 sqlite3.exe
 .read magasin_sqlite.sql
 .mode column
