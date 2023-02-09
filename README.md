@@ -1,6 +1,4 @@
-# r107
-
-| course      | teacher       | link                                                            |
+| course      | teacher       | files                                                           |
 | :---        |    :----      |          :---                                                   |
 | r207        | munier        | [munier's perso](https://munier.perso.univ-pau.fr/temp/R207/)   |
 
