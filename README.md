@@ -4,7 +4,9 @@
 | :---        |    :----      |          :---                                                   |
 | r207        | munier        | [munier's perso](https://munier.perso.univ-pau.fr/temp/R207/)   |
 
-:tv: here are my sql querries for the first sql practice in the r207 course
+> :tv: here are my sql querries for the sql practice in the r207 course
+
+## the start
 
 initial commands after installing [SQlite](https://www.sqlite.org/download.html)
 
@@ -15,16 +17,15 @@ sqlite3.exe
 .headers on
 .shell cls
 ```
+
 ## tp1
 
-
-### 1. Easy queries
+### 1. easy queries
 
 - [x] (a) noms des fournisseurs situés à Paris
 ```sql
   select nomfour from fournisseur where (origine = 'Paris');
 ```
-
 
 - [x] (b) numéros des produits provenant de Paris et dont le poids est supérieur ou égal à
 ```sql
@@ -54,8 +55,7 @@ select nomprod from produit where (numprod <= 'p4');
 select nomprod from produit where numprod in ('p1', 'p2', 'p3', 'p4');
 ```
 
-
-### subqueries
+### 2. subqueries
 
 - [x] (a) noms des fournisseurs ayant livré des produits de couleur rouge
 ```sql
@@ -82,7 +82,8 @@ select distinct numfour from stock where numprod in (select numprod from stock w
 ```sql
 select * from produit where origine in (select origine from produit where (numprod = 'p1'));
 ```
-### "exists" and "not exists"
+
+### 3. "exists" and "not exists"
 
 - [x] (a) noms des fournisseurs ayant livré le produit p2
 ```sql
@@ -91,6 +92,7 @@ select nomfour from fournisseur where numfour in (select numfour from stock wher
 ```sql
 select nomfour from fournisseur where exists (select numfour from stock where (numprod = 'p2'));
 ```
+
 - [x] (b) noms des fournisseurs n'ayant pas livré le produit p2
 ```sql
 select nomfour from fournisseur where numfour not in (select numfour from stock where (numprod = 'p2'));
@@ -98,6 +100,7 @@ select nomfour from fournisseur where numfour not in (select numfour from stock 
 ```sql
 select nomfour from fournisseur where not exists (select numfour from stock where (numprod = 'p2'));
 ```
+
 - [x] (c) noms des fournisseurs tels qu'il n'y ait pas de produit qu'ils n'aient pas livré (. . .)
 
 je comprends: donner le nom des fournisseurs ayant livrés tous leur produit
@@ -109,7 +112,7 @@ select nomfour from fournisseur where numfour not in (select distinct numfour fr
  ```
 renvoie rien car tous les fournisseurs ont livrés leur produit
 
-### "group by" and "having"
+### 4. "group by" and "having"
 
 - [x] (a) total des quantités livrées pour chaque produit
 ```sql
