@@ -1,6 +1,6 @@
 | course      | teacher       | files                                                           |
 | :---        |    :----      |          :---                                                   |
-| r207        | munier        | <a href="https://munier.perso.univ-pau.fr/temp/R207/" target="_blank">munier's perso</a>   |
+| r207        | munier        | [munier's perso](https://munier.perso.univ-pau.fr/temp/R207/){:target="_blank"} |
  
 
 > :tv: here are my sql querries for the sql practice in the r207 course
