@@ -4,8 +4,10 @@
 | :---        |    :----      |          :---                                                   |
 | r207        | munier        | [munier's perso](https://munier.perso.univ-pau.fr/temp/R207/)   |
 
+:tv: here are my sql querries for the first sql practice in the r207 course
 
-initial commands
+initial commands after installing [SQlite](https://www.sqlite.org/download.html)
+
 ```sql
 sqlite3.exe
 .read magasin_sqlite.sql
@@ -13,7 +15,7 @@ sqlite3.exe
 .headers on
 .shell cls
 ```
-
+## tp1
 
 - [x] (a) noms des fournisseurs situés à Paris
 ```sql
