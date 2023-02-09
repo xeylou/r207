@@ -114,13 +114,16 @@ renvoie rien car tous les fournisseurs ont livrés leur produit
 
 - [x] (a) total des quantités livrées pour chaque produit
 ```sql
-select numprod, sum(qte) from stock group by numprod;```
+select numprod, sum(qte) from stock group by numprod;
+```
 
 - [x] (b) idem précédent, mais p1 non pris en compte
 ```sql
-select numprod, sum(qte) from stock where numprod > 'p1' group by numprod;```
+select numprod, sum(qte) from stock where numprod > 'p1' group by numprod;
+```
 fallait faire avec un count
 
 - [x] (c) numéros des fournisseurs ayant livré au moins deux produits
 ```sql
-select nomfour from fournisseur where numfour in (select numfour from stock group by numfour having count(*) >= 2);```
+select nomfour from fournisseur where numfour in (select numfour from stock group by numfour having count(*) >= 2);
+```
