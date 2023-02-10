@@ -36,3 +36,11 @@ select nomfour from fournisseur where numfour not in (select numfour from stock 
 ```sql
 select nomfour from fournisseur where not exists (select numfour from stock where (numprod = 'p2'));
 ```
+3C```sql
+select nomfour 
+from fournisseur 
+where not exists (select numfour from stock 
+where not exists (select numprod from stock group by numprod having count(*) = 0));
+```
+> je fais un compteur de tous les produits (p1 -> p7) donc 7 produits, je sélectionne les fournisseurs pour lequels 
+> renvoie rien car tous les fournisseurs ont livrés leur produit
