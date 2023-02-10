@@ -1,0 +1,3 @@
+select numfour from fournisseur where not exists (select numfour from stock where not exists
+
+donner la liste de nom des fournisseur pour lesquels il n'y ait pas un fournisseur qui n'a pas livré tous les produits
