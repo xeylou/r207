@@ -17,7 +17,9 @@ sqlite3.exe
 .shell cls
 ```
 
-## tp1
+# first practice
+
+## first marks w/ sql
 
 ### 1. easy queries
 
@@ -139,3 +141,20 @@ from fournisseur
 where numfour 
 in (select numfour from stock group by numfour having count(*) >= 2);
 ```
+## more querries
+
+- [ ] (a) numéros des produits livrés par plus d'un fournisseur (donner 3 solutions différentes)
+- [ ] (b) numéros des fournisseurs ayant livré au moins tous les produits livrés par f2
+- [ ] (c) numéro, nom et poids du produit le plus lourd de la liste
+- [ ] (d) numéro, nom et poids de tous les produits pour lesquels il existe au moins un produit plus léger dans la liste
+- [ ] (e) numéros des fournisseurs dont la remise est strictement inférieure à la remise maximale
+- [ ] (f ) numéros des produits (ainsi que leur poids et leur origine) dont le poids est supérieur ou égal au poids moyen des produits originaires de la même ville
+- [ ] (g) total des quantités livrées pour chaque pro duit
+- [ ] (h) numéros des produits ayant été livrés au moins un fois (donner 3 solutions différentes)
+- [ ] (i) pour tous les produits rouges ou bleus dont la quantité totale livrée est supérieure à 350 (en excluant du total les commandes dont la quantité est inférieure à 200), donner le numéro du produit, le poids en pounds (sachant qu'une livre vaut 450 grammes), la couleur et la plus grande
+quantité livrée pour ce produit
+- [ ] (j) liste des couples de nom de fournisseurs installés dans la même ville et ayant livré au moins un produit identique
+- [ ] (k) commande SQL permettant de rajouter une colonne PU (prix unitaire) dans la table Produit
+- [ ] (l) valeur marchande du stock pour chacun des fournisseurs (avec leur nom)
+- [ ] (m) dans la table Produit, convertir le poids des articles en livres (pounds)
+- [ ] (n) supprimer tous les founisseurs n'ayant pas livré le moindre produit
