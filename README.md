@@ -1,4 +1,4 @@
-> :tv: sql querries for the r207 course
+>  :tv: sql querries for the r207 course
 
 | course      | teacher       | files                                                           |
 | :---        |    :----      |          :---                                                   |
