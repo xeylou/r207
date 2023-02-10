@@ -112,9 +112,11 @@ where not exists (select a.numfour from stock a where (numprod = 'p2')
 and fournisseur.numfour = a.numfour);
 ```
 
-- [] (c) noms des fournisseurs tels qu'il n'y ait pas de produit qu'ils n'aient pas livré (. . .)
+- [ ] (c) noms des fournisseurs tels qu'il n'y ait pas de produit qu'ils n'aient pas livré (. . .)
 ```sql
+select distinct a.numfour, b.numprod from stock a, stock b where (a.numprod = b.numprod) order by a.numfour asc;
 ```
+liste des fournisseurs et de leur produits livrés
 
 
 ### 4. "group by" and "having"
