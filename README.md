@@ -45,7 +45,9 @@ select numfour, numprod from produit, fournisseur where (fournisseur.ville = pro
 ```sql
 select distinct a.numprod, b.numprod from produit a, produit b where (A.origine = b.origine) and (a.numprod < b.numprod);
 ```
-dernière condition car distinct ne peut pas fonctionner
+dernière condition car distinct ne peut pas fonction+
+ner
+inférieur strict ou supérieur strict pour garder que l'un des deux (mêmes)
 
 - [x] (f) noms des produits dont le numéro est p1, p2, p3 ou p4
 ```sql
