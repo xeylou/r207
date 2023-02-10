@@ -131,5 +131,8 @@ fallait faire avec un count
 
 - [x] (c) numéros des fournisseurs ayant livré au moins deux produits
 ```sql
-select nomfour from fournisseur where numfour in (select numfour from stock group by numfour having count(*) >= 2);
+select nomfour 
+from fournisseur 
+where numfour 
+in (select numfour from stock group by numfour having count(*) >= 2);
 ```
