@@ -26,14 +26,14 @@ sqlite3.exe
   select nomfour from fournisseur where (origine = 'Paris');
 ```
 
-- [x] (b) numéros des produits provenant de Paris et dont le poids est supérieur ou égal à
+- [x] (b) numéros des produits provenant de Paris et dont le poids est supérieur ou égal à 0.3
 ```sql
 select nomprod from produit where (origine = 'Paris') and (poids >= 0.3);
 ```
 
 - [x] (c) idem précédent, mais triés par poids décroissant
 ```sql
-select nomprod from produit where (origine = 'Paris') and (poids >= 0.3) order by poids asc;
+select nomprod from produit where (origine = 'Paris') and (poids >= 0.3) order by poids desc;
 ```
 
 - [x] (d) correspondance entre les numéros de fournisseurs et les numéros de produits de la même ville
@@ -43,8 +43,9 @@ select numfour, numprod from produit, fournisseur where (fournisseur.ville = pro
 
 - [x] (e) correspondance entre les numéros de produits de la même ville
 ```sql
-select numprod, origine from produit where origine in (select origine from produit group by origine having count(*) > 1);
+select distinct a.numprod, b.numprod from produit a, produit b where (A.origine = b.origine) and (a.numprod < b.numprod);
 ```
+dernière condition car distinct ne peut pas fonctionner
 
 - [x] (f) noms des produits dont le numéro est p1, p2, p3 ou p4
 ```sql
@@ -58,57 +59,41 @@ select nomprod from produit where numprod in ('p1', 'p2', 'p3', 'p4');
 
 - [x] (a) noms des fournisseurs ayant livré des produits de couleur rouge
 ```sql
-select fournisseur.nomfour from fournisseur, produit where produit.couleur = 'rouge';
+select nomfour from fournisseur where numfour in (select numfour from stock where numprod in (select numprod from produit where (couleur = 'rouge')));
 ```
 
 - [x] (b) noms des fournisseurs ayant livré le produit p2
 ```sql
-select fournisseur.nomfour from fournisseur, produit where produit.numprod = 'p2';
+select nomfour from fournisseur where numfour in (select numfour from stock where (numprod = 'p2'));
 ```
 
 - [x] (c) numéros des fournisseurs ayant livré au moins un article identique à ceux livrés par f2
-```sql
-select * from stock where numprod in (select numprod from stock where (numfour = 'f2'));
-```
-```sql
-select * from stock where numprod in ('p1', 'p2', 'p6', 'p7');
-```
 ```sql
 select distinct numfour from stock where numprod in (select numprod from stock where (numfour = 'f2'));
 ```
 
 - [x] (d) numéros des produits originaires de la même ville que p1
 ```sql
-select * from produit where origine in (select origine from produit where (numprod = 'p1'));
+select numprod from produit where (origine in (select origine from produit where (numprod = 'p1')));
 ```
 
 ### 3. "exists" and "not exists"
 
 - [x] (a) noms des fournisseurs ayant livré le produit p2
 ```sql
-select nomfour from fournisseur where numfour in (select numfour from stock where (numprod = 'p2'));
-```
-```sql
-select nomfour from fournisseur where exists (select numfour from stock where (numprod = 'p2'));
+select nomfour from fournisseur where exists (select a.numfour from stock a where (numprod = 'p2') and fournisseur.numfour = a.numfour);
 ```
 
 - [x] (b) noms des fournisseurs n'ayant pas livré le produit p2
 ```sql
-select nomfour from fournisseur where numfour not in (select numfour from stock where (numprod = 'p2'));
-```
-```sql
-select nomfour from fournisseur where not exists (select numfour from stock where (numprod = 'p2'));
+select nomfour from fournisseur where not exists (select a.numfour from stock a where (numprod = 'p2') and fournisseur.numfour = a.numfour);
 ```
 
 - [x] (c) noms des fournisseurs tels qu'il n'y ait pas de produit qu'ils n'aient pas livré (. . .)
-
-je comprends: donner le nom des fournisseurs ayant livrés tous leur produit
 ```sql
-select nomfour from fournisseur where numfour not in (select distinct numfour from stock where numprod in (select numprod from produit));
+select nomfour from fournisseur where not exists (select numfour from stock where not exists (select numprod from stock group by numprod having count(*) = 0));
 ```
-```sql
- select nomfour from fournisseur where not exists (select 1 from produit, stock where produit.numprod = stock.numprod) and not exists (select 1 from fournisseur, stock where fournisseur.numfour = stock.numfour);
- ```
+je fais un compteur de tous les produits (p1 -> p7) donc 7 produits, je sélectionne les fournisseurs pour lequels 
 renvoie rien car tous les fournisseurs ont livrés leur produit
 
 ### 4. "group by" and "having"

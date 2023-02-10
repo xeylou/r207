@@ -1,3 +1,38 @@
 select numfour from fournisseur where not exists (select numfour from stock where not exists
 
 donner la liste de nom des fournisseur pour lesquels il n'y ait pas un fournisseur qui n'a pas livré tous les produits
+
+select nomfour from fournisseur where not exists (select numfour from stock where not exists (select numfour where numprod ));
+
+
+cimetière
+3C
+je comprends: donner le nom des fournisseurs ayant livrés tous leur produit
+```sql
+select nomfour from fournisseur where numfour not in (select distinct numfour from stock where numprod in (select numprod from produit));
+```
+```sql
+ select nomfour from fournisseur where not exists (select 1 from produit, stock where produit.numprod = stock.numprod) and not exists (select 1 from fournisseur, stock where fournisseur.numfour = stock.numfour);
+ ```
+ 1e
+ ```sql
+select numprod, origine from produit where origine in (select origine from produit group by origine having count(*) > 1);
+```
+2c
+```sql
+select * from stock where numprod in (select numprod from stock where (numfour = 'f2'));
+```
+```sql
+select * from stock where numprod in ('p1', 'p2', 'p6', 'p7');
+```
+```sql
+select distinct numfour from stock where numprod in (select numprod from stock where (numfour = 'f2'));
+```
+select nomfour FROM fournisseur WHERE EXISTS (select * from stock, fournisseur WHERE (stock.numfour=fournisseur.numfour) and (stock.numprod='p2'));
+3b
+```sql
+select nomfour from fournisseur where numfour not in (select numfour from stock where (numprod = 'p2'));
+```
+```sql
+select nomfour from fournisseur where not exists (select numfour from stock where (numprod = 'p2'));
+```
