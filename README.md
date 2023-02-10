@@ -1,9 +1,9 @@
+# :tv: here are my sql querries for the sql practice in the r207 course
+
 | course      | teacher       | files                                                           |
 | :---        |    :----      |          :---                                                   |
 | r207        | munier        | [munier's perso](https://munier.perso.univ-pau.fr/temp/R207/)   |
  
-
-> :tv: here are my sql querries for the sql practice in the r207 course
 
 ## the start
 
@@ -95,8 +95,8 @@ select nomfour from fournisseur where not exists (select a.numfour from stock a 
 ```sql
 select nomfour from fournisseur where not exists (select numfour from stock where not exists (select numprod from stock group by numprod having count(*) = 0));
 ```
-je fais un compteur de tous les produits (p1 -> p7) donc 7 produits, je sélectionne les fournisseurs pour lequels 
-renvoie rien car tous les fournisseurs ont livrés leur produit
+> je fais un compteur de tous les produits (p1 -> p7) donc 7 produits, je sélectionne les fournisseurs pour lequels 
+> renvoie rien car tous les fournisseurs ont livrés leur produit
 
 ### 4. "group by" and "having"
 
