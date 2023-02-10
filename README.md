@@ -1,4 +1,4 @@
-# :tv: here are my sql querries for the sql practice in the r207 course
+# :tv: sql querries for the r207 course
 
 | course      | teacher       | files                                                           |
 | :---        |    :----      |          :---                                                   |
