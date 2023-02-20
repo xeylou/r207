@@ -44,3 +44,27 @@ where not exists (select numprod from stock group by numprod having count(*) = 0
 ```
 > je fais un compteur de tous les produits (p1 -> p7) donc 7 produits, je sélectionne les fournisseurs pour lequels 
 > renvoie rien car tous les fournisseurs ont livrés leur produit
+
+
+
+3 C
+
+nom des fournisseurs qui ont livrés tous les produits   
+mais consigne pour aider -> c'est un not exists
+
+pour un fournisseur donné, liste des produits non livrés par 
+
+
+select nomfour from fournisseur
+where not exists ("liste des produits non livrés par fournisseur.numfour")
+
+donc
+
+select * from produit
+where not exists ("liste des livraisons de produit.numprod par fournisseur.numfour")
+
+encore donc
+
+select * from stock
+where (stock.numfour = fournisseur.numfour)
+and (stock.numprod = produit.numprod)
