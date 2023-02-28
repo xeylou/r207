@@ -5,7 +5,7 @@ def first_function():
     cur.execute("select distinct NomCours,NomProf from Cours,Suit where (Suit.NumCours = Cours.NumCours)")
     res = cur.fetchall()
     for row in res:
-    (cours,prof) = tuple(row)
-    print("- "+cours+" -> "+prof)
+        (cours,prof) = tuple(row)
+        print("- "+cours+" -> "+prof)
     print("fin.")
     con.close()
