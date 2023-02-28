@@ -7,5 +7,6 @@
 
 ## the start
 
-in this practice, th egoal is to manage 
+in this practice, we learned how to make sql querries
+in a python program in order to automate it
 ```
