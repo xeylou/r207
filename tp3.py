@@ -1,9 +1,10 @@
+import sqlite3 as sql
+
 def first_function():
-    import sqlite3 as sql
-    con = sql.connect("bdd_cours.sqlite")
+    con = sql.connect("bdd_4_sqlite.sql")
     cur = con.cursor()
 
-    cur.execute("select * from Cours")
+    cur.execute("select * from cours")
 
     res = cur.fetchall()
 
@@ -11,6 +12,8 @@ def first_function():
     # for row in res:
     #     (cours,prof) = tuple(row)
     #     print("- "+cours+" -> "+prof)
-    
+
     print("fin.")
     con.close()
+
+print(first_function())
