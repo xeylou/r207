@@ -14,11 +14,12 @@ for line in res:
     toJSON.append(tmp)
 print(toJSON)
 
+# version by julien (C)
 print("[")
 for line in res:
     print("[")
     for elt in line:
-        print("[", elt, "]")
+        print(elt, ",")
     print("]")
 print("]")
 
