@@ -38,19 +38,13 @@ select nomprod from produit where (origine = 'Paris') and (poids >= 0.3);
 select nomprod from produit where (origine = 'Paris') and (poids >= 0.3) order by poids desc;
 ```
 
-- [x] (d) correspondance entre les numéros de fournisseurs et les numéros de produits de la même ville
-```sql
-select numfour, numprod from produit, fournisseur where (fournisseur.ville = produit.origine);
-```
-
 - [x] (e) correspondance entre les numéros de produits de la même ville
 ```sql
 select distinct a.numprod, b.numprod 
 from produit a, produit b 
 where (A.origine = b.origine) and (a.numprod < b.numprod);
 ```
-dernière condition car distinct ne peut pas fonction+
-ner
+dernière condition car distinct ne peut pas fonctionner +
 inférieur strict ou supérieur strict pour garder que l'un des deux (mêmes)
 
 - [x] (f) noms des produits dont le numéro est p1, p2, p3 ou p4
