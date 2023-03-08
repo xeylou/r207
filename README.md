@@ -152,3 +152,31 @@ quantité livrée pour ce produit
 - [ ] (l) valeur marchande du stock pour chacun des fournisseurs (avec leur nom)
 - [ ] (m) dans la table Produit, convertir le poids des articles en livres (pounds)
 - [ ] (n) supprimer tous les founisseurs n'ayant pas livré le moindre produit
+
+1.
+Afficher le nom de étudiants avec au moins une absence à tous les cours
+```sql
+select nomEtud from Etudiants where idEtud in (select distinct IdEtud from absence group by idEtud having count(absence.idCours) = (select count(*) from cours));```
+(donne le nom des étudiants pour lequels sans doublon le nombre de leur absence à chaque cours vaut le nombre total de cours)
+
+version julien sur discord
+```sql
+select nomEtud from Etudiant where not exists (select idCours from Cours where not exists (select * from absence where (etudiant.idetud = absence.idetud) and (cours.idCours = absence.idCours))))```
+
+2.
+Afficher le nom des étudiants et leur nombre d'absence pour chaque étudiant
+```sql
+select nomEtud, from Etudiants where ```
+
+
+3.
+Afficher la date où Elsa a été absente sans utiliser idEtud = ...
+```sql
+select dateAbsence from Absence, Etudiant where (absence.NomEtud = "Elsa") and (Absence.id = Etudiant.id);
+```
+
+4.
+Nom de tous les étudiants avec aucune absence
+```sql
+select nomEtud from Etudiant where idEtudiant not in (select idEtudient from absence);
+```
