@@ -1,7 +1,3 @@
-```python3
-
-# jugez pas trop j'en suis pas fiers
-
 #!/usr/bin/python3
 
 ### init ###
@@ -126,4 +122,3 @@ print(debugging())
 # print('\x1b[6;30;42m' + 'Succès!' + '\x1b[0m')
 # print(enregistrerNote(("Nom4", "Prenom4", 4), 10))
 print('\x1b[6;30;42m' + 'Succès!' + '\x1b[0m')
-```
